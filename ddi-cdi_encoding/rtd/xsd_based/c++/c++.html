@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>C++ &mdash; Syntax Representations of the DDI-CDI Model (Exploration)  documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="../../_static/graphviz.css?v=eafc0fe6" />
+      <link rel="stylesheet" type="text/css" href="../../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
+      <link rel="stylesheet" type="text/css" href="../../_static/html_custom.css?v=f4d2740b" />
+      <link rel="stylesheet" type="text/css" href="../../_static/common.css?v=81e0ad15" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../../_static/documentation_options.js?v=8a448e45"></script>
+        <script src="../../_static/doctools.js?v=888ff710"></script>
+        <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="../../_static/design-tabs.js?v=36754332"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Java" href="../java/java.html" />
+    <link rel="prev" title="C#" href="../c%23/c%23.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            Syntax Representations of the DDI-CDI Model (Exploration)
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../ddi-cdi.html">DDI-CDI</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../ucmis.html">UCMIS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../canonical-xmi.html">Canonical XMI</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../model_based/xsd.html">XML Schema</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../model_based/rdf.html">RDF</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../c%23/c%23.html">C#</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">C++</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#windows-batch-file">Windows Batch File</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#generated-files">Generated Files</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#c-code-file-fragment">C++ Code File Fragment</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#c-header-file-fragment">C++ Header File Fragment</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../java/java.html">Java</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../json-schema/json-schema.html">JSON Schema</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python/python.html">Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../model_based/python.html">Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../r/omegahat_XMLSchema/r.html">R Language</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../model_based/r.html">R Language</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../typescript/typescript.html">Typescript</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../open-issues.html">Open Issues</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Syntax Representations of the DDI-CDI Model (Exploration)</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">C++</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="c">
+<h1>C++<a class="headerlink" href="#c" title="Link to this heading"></a></h1>
+<p>Based on the XML Schema.</p>
+<p><strong>CodeSynthesis XSD</strong> is an open-source, cross-platform W3C XML Schema to C++ data binding compiler.</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://www.codesynthesis.com/products/xsd/">Product</a></p></li>
+<li><p><a class="reference external" href="https://www.codesynthesis.com/download/xsd/4.2/windows/README.xhtml">Installing XSD on Windows</a></p></li>
+<li><p><a class="reference external" href="https://www.codesynthesis.com/projects/xsd/documentation/cxx/tree/guide/">C++/Tree Mapping Getting Started Guide</a></p></li>
+</ul>
+<section id="windows-batch-file">
+<h2>Windows Batch File<a class="headerlink" href="#windows-batch-file" title="Link to this heading"></a></h2>
+<div class="literal-block-wrapper docutils container" id="id1">
+<div class="code-block-caption"><span class="caption-text">run_xsd.cmd</span><a class="headerlink" href="#id1" title="Link to this code"></a></div>
+<div class="highlight-bat notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="k">set</span> <span class="nv">XSD_HOME</span><span class="p">=</span>..\..\model_based\xsd_variants
+<span class="linenos"> 2</span><span class="k">set</span> <span class="nv">XSD_EXE_FOLDER</span><span class="p">=</span>C:\Programs\c++xsd\xsd-4.2.0-x86_64-windows10\bin
+<span class="linenos"> 3</span><span class="c1">rem set XSD_EXE_FOLDER=E:\DDI\CDI\SyntaxRepresentation\encoding\c++\xsd-4.2.0-x86_64-windows10\bin</span>
+<span class="linenos"> 4</span>
+<span class="linenos"> 5</span><span class="nv">%XSD_EXE_FOLDER%</span>\xsd.exe cxx-tree --root-element DDICDIModels <span class="nv">%XSD_HOME%</span>\ddi-cdi_42_noXsdTypeInName.xsd
+<span class="linenos"> 6</span><span class="c1">rem %XSD_EXE_FOLDER%\xsd.exe cxx-tree --root-element DDICDIModels %XSD_HOME%\ddi-cdi_43_noXsdTypeInName.xsd</span>
+<span class="linenos"> 7</span><span class="c1">rem %XSD_EXE_FOLDER%\xsd.exe cxx-tree --root-element DDICDIModels %XSD_HOME%\ddi-cdi_44_noXsdTypeInName.xsd</span>
+<span class="linenos"> 8</span><span class="c1">rem %XSD_EXE_FOLDER%\xsd.exe cxx-tree --root-element DDICDIModels %XSD_HOME%\ddi-cdi_45_noXsdTypeInName.xsd</span>
+<span class="linenos"> 9</span>
+<span class="linenos">10</span><span class="k">set</span> <span class="nv">XSD_HOME</span><span class="p">=</span>
+<span class="linenos">11</span><span class="k">set</span> <span class="nv">XSD_EXE_FOLDER</span><span class="p">=</span>
+</pre></div>
+</div>
+</div>
+<div class="font50p docutils container">
+<p>Source file <a class="reference external" href="https://github.com/ddi-cdi-resources/ddi-cdi_encoding/tree/main/encoding/xsd_based/c%2B%2B/run_xsd.cmd">run_xsd.cmd</a></p>
+</div>
+</section>
+<section id="generated-files">
+<h2>Generated Files<a class="headerlink" href="#generated-files" title="Link to this heading"></a></h2>
+<p>A code file and a header file are generated for C++.</p>
+</section>
+<section id="c-code-file-fragment">
+<h2>C++ Code File Fragment<a class="headerlink" href="#c-code-file-fragment" title="Link to this heading"></a></h2>
+<div class="literal-block-wrapper docutils container" id="id2">
+<div class="code-block-caption"><span class="caption-text">Fragment of ddi-cdi_44_noXsdTypeInName.cxx</span><a class="headerlink" href="#id2" title="Link to this code"></a></div>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;xsd/cxx/pre.hxx&gt;</span>
+<span class="linenos"> 2</span>
+<span class="linenos"> 3</span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;ddi-cdi_44_noXsdTypeInName.hxx&quot;</span>
+<span class="linenos"> 4</span>
+<span class="linenos"> 5</span><span class="n">namespace</span><span class="w"> </span><span class="n">XMLSchema</span>
+<span class="linenos"> 6</span><span class="p">{</span>
+<span class="linenos"> 7</span><span class="w">  </span><span class="c1">// DDICDIModels</span>
+<span class="linenos"> 8</span><span class="w">  </span><span class="c1">//</span>
+<span class="linenos"> 9</span>
+<span class="linenos">10</span><span class="w">  </span><span class="k">const</span><span class="w"> </span><span class="n">DDICDIModels</span><span class="o">::</span><span class="n">Activity_sequence</span><span class="o">&amp;</span><span class="w"> </span><span class="n">DDICDIModels</span><span class="o">::</span>
+<span class="linenos">11</span><span class="w">  </span><span class="n">Activity</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="k">const</span>
+<span class="linenos">12</span><span class="w">  </span><span class="p">{</span>
+<span class="linenos">13</span><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">this</span><span class="o">-&gt;</span><span class="n">Activity_</span><span class="p">;</span>
+<span class="linenos">14</span><span class="w">  </span><span class="p">}</span>
+<span class="linenos">15</span>
+<span class="linenos">16</span><span class="w">  </span><span class="n">DDICDIModels</span><span class="o">::</span><span class="n">Activity_sequence</span><span class="o">&amp;</span><span class="w"> </span><span class="n">DDICDIModels</span><span class="o">::</span>
+<span class="linenos">17</span><span class="w">  </span><span class="n">Activity</span><span class="w"> </span><span class="p">()</span>
+<span class="linenos">18</span><span class="w">  </span><span class="p">{</span>
+<span class="linenos">19</span><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">this</span><span class="o">-&gt;</span><span class="n">Activity_</span><span class="p">;</span>
+<span class="linenos">20</span><span class="w">  </span><span class="p">}</span>
+<span class="linenos">21</span>
+<span class="linenos">22</span><span class="w">  </span><span class="kt">void</span><span class="w"> </span><span class="n">DDICDIModels</span><span class="o">::</span>
+<span class="linenos">23</span><span class="w">  </span><span class="n">Activity</span><span class="w"> </span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">Activity_sequence</span><span class="o">&amp;</span><span class="w"> </span><span class="n">s</span><span class="p">)</span>
+<span class="linenos">24</span><span class="w">  </span><span class="p">{</span>
+<span class="linenos">25</span><span class="w">    </span><span class="n">this</span><span class="o">-&gt;</span><span class="n">Activity_</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">s</span><span class="p">;</span>
+<span class="linenos">26</span><span class="w">  </span><span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="font50p docutils container">
+<p>Source file <a class="reference external" href="https://github.com/ddi-cdi-resources/ddi-cdi_encoding/tree/main/encoding/xsd_based/c%2B%2B/ddi-cdi_44_noXsdTypeInName.cxx">ddi-cdi.cxx</a></p>
+</div>
+</section>
+<section id="c-header-file-fragment">
+<h2>C++ Header File Fragment<a class="headerlink" href="#c-header-file-fragment" title="Link to this heading"></a></h2>
+<div class="literal-block-wrapper docutils container" id="id3">
+<div class="code-block-caption"><span class="caption-text">Fragment of ddi-cdi_44_noXsdTypeInName.hxx</span><a class="headerlink" href="#id3" title="Link to this code"></a></div>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="w">    </span><span class="c1">// AuthorizationSource</span>
+<span class="linenos"> 2</span><span class="w">    </span><span class="c1">//</span>
+<span class="linenos"> 3</span><span class="w">    </span><span class="k">typedef</span><span class="w"> </span><span class="o">::</span><span class="n">XMLSchema</span><span class="o">::</span><span class="n">AuthorizationSource</span><span class="w"> </span><span class="n">AuthorizationSource_type</span><span class="p">;</span>
+<span class="linenos"> 4</span><span class="w">    </span><span class="k">typedef</span><span class="w"> </span><span class="o">::</span><span class="n">xsd</span><span class="o">::</span><span class="n">cxx</span><span class="o">::</span><span class="n">tree</span><span class="o">::</span><span class="n">sequence</span><span class="o">&lt;</span><span class="w"> </span><span class="n">AuthorizationSource_type</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">AuthorizationSource_sequence</span><span class="p">;</span>
+<span class="linenos"> 5</span><span class="w">    </span><span class="k">typedef</span><span class="w"> </span><span class="n">AuthorizationSource_sequence</span><span class="o">::</span><span class="n">iterator</span><span class="w"> </span><span class="n">AuthorizationSource_iterator</span><span class="p">;</span>
+<span class="linenos"> 6</span><span class="w">    </span><span class="k">typedef</span><span class="w"> </span><span class="n">AuthorizationSource_sequence</span><span class="o">::</span><span class="n">const_iterator</span><span class="w"> </span><span class="n">AuthorizationSource_const_iterator</span><span class="p">;</span>
+<span class="linenos"> 7</span><span class="w">    </span><span class="k">typedef</span><span class="w"> </span><span class="o">::</span><span class="n">xsd</span><span class="o">::</span><span class="n">cxx</span><span class="o">::</span><span class="n">tree</span><span class="o">::</span><span class="n">traits</span><span class="o">&lt;</span><span class="w"> </span><span class="n">AuthorizationSource_type</span><span class="p">,</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">AuthorizationSource_traits</span><span class="p">;</span>
+<span class="linenos"> 8</span>
+<span class="linenos"> 9</span><span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="n">AuthorizationSource_sequence</span><span class="o">&amp;</span>
+<span class="linenos">10</span><span class="w">    </span><span class="nf">AuthorizationSource</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="k">const</span><span class="p">;</span>
+<span class="linenos">11</span>
+<span class="linenos">12</span><span class="w">    </span><span class="n">AuthorizationSource_sequence</span><span class="o">&amp;</span>
+<span class="linenos">13</span><span class="w">    </span><span class="nf">AuthorizationSource</span><span class="w"> </span><span class="p">();</span>
+<span class="linenos">14</span>
+<span class="linenos">15</span><span class="w">    </span><span class="kt">void</span>
+<span class="linenos">16</span><span class="w">    </span><span class="nf">AuthorizationSource</span><span class="w"> </span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">AuthorizationSource_sequence</span><span class="o">&amp;</span><span class="w"> </span><span class="n">s</span><span class="p">);</span>
+<span class="linenos">17</span>
+<span class="linenos">18</span><span class="w">    </span><span class="c1">// Category</span>
+<span class="linenos">19</span><span class="w">    </span><span class="c1">//</span>
+<span class="linenos">20</span><span class="w">    </span><span class="k">typedef</span><span class="w"> </span><span class="o">::</span><span class="n">XMLSchema</span><span class="o">::</span><span class="n">Category</span><span class="w"> </span><span class="n">Category_type</span><span class="p">;</span>
+<span class="linenos">21</span><span class="w">    </span><span class="k">typedef</span><span class="w"> </span><span class="o">::</span><span class="n">xsd</span><span class="o">::</span><span class="n">cxx</span><span class="o">::</span><span class="n">tree</span><span class="o">::</span><span class="n">sequence</span><span class="o">&lt;</span><span class="w"> </span><span class="n">Category_type</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">Category_sequence</span><span class="p">;</span>
+</pre></div>
+</div>
+</div>
+<div class="font50p docutils container">
+<p>Source file <a class="reference external" href="https://github.com/ddi-cdi-resources/ddi-cdi_encoding/tree/main/encoding/xsd_based/c%2B%2B/ddi-cdi_44_noXsdTypeInName.hxx">ddi-cdi.hxx</a></p>
+</div>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="../c%23/c%23.html" class="btn btn-neutral float-left" title="C#" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../java/java.html" class="btn btn-neutral float-right" title="Java" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p></p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>  
+
+  <style>
+         .wy-nav-content { max-width: none; }
+  </style>
+
+
+
+</body>
+</html>

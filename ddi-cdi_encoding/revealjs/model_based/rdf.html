@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+
+<html lang="en" data-content_root="../">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <title>RDF</title>
+    <link rel="stylesheet" type="text/css" href="../_static/revealjs/dist/reveal.css?v=40f0a724" />
+    <link rel="stylesheet" href="../_static/revealjs/dist/theme/sky.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/revealjs_custom.css?v=155d2288" />
+    <link rel="stylesheet" type="text/css" href="../_static/common.css?v=51d1a8f8" />
+    <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=3184803b" />
+    <link rel="stylesheet" type="text/css" href="../_static/menu.css?v=b1df3480" />
+    <link rel="stylesheet" type="text/css" href="../_static/revealjs4/plugin/highlight/monokai.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
+    <link rel="stylesheet" type="text/css" href="../_static/graphviz.css" />
+    <script src="../_static/design-tabs.js?v=36754332"></script>
+    <link rel="next" title="C#" href="../xsd_based/c%23/c%23.html" />
+    <link rel="prev" title="XML Schema" href="xsd.html" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+  </head><body>
+    <div class="reveal">
+        <div class="slides" role="main">
+            <section data-name="RDF">
+<section >
+<h1>RDF</h1>
+<p>The encodings <strong>ontology as Turtle</strong> and <strong>JSON-LD</strong> are directly based on the UML model.
+They are generated with the <a class="reference external" href="https://bitbucket.org/wackerow/ucmis.m2t/src/master/">UCMIS Model-to-Text tool</a>.</p>
+</section>
+</section>
+<section >
+<h2>Ontology as Turtle</h2>
+<ul class="simple">
+<li><p>Main file <a class="reference external" href="https://ddi-cdi.github.io/ddi-cdi_v1.0-rc3/encoding/ontology/ddi-cdi.onto.ttl">ddi-cdi.onto.ttl</a></p></li>
+<li><p>Fragments per class and data types are available in the field-level documentation of DDI-CDI. See the section ‘encodings’ on the
+bottom of the example <a class="reference external" href="https://ddi-cdi.github.io/ddi-cdi_v1.0-rc3/field-level-documentation/DDICDILibrary/Classes/Conceptual/InstanceVariable.html#inheritance">InstanceVariable</a>.</p></li>
+</ul>
+</section>
+<section >
+<h2>Generator Code for Ontology as Turtle</h2>
+<p>Acceleo code for generating Turtle on the basis of UML classes.</p>
+<div class="literal-block-wrapper docutils container" id="id2">
+<div class="code-block-caption"><span class="caption-text">classOnto.mtl</span></div>
+<pre><code data-trim data-noescape class="default" data-line-numbers>[comment encoding = UTF-8 /]
+[module classOnto('http://www.eclipse.org/uml2/5.0.0/Types', 'http://www.eclipse.org/uml2/5.0.0/UML', 'http://www.eclipse.org/uml2/5.0.0/UML/Profile/Standard')]
+
+[import ucmis::m2t::query::modelQuery /]
+[import ucmis::m2t::target::rdf::commonRdf /]
+[import ucmis::m2t::target::onto::associationOnto /]
+[import ucmis::m2t::target::onto::commonOnto /]
+
+[template public classOnto(aClass : Class)]
+# class [aClass.name/]
+# based on the UML class [aClass.qualifiedName/]
+[aClass.iri()/]
+  a rdfs:Class, owl:Class, ucmis:Class;
+  rdfs:label &quot;[aClass.name/]&quot;;
+  [rdfs_comment(aClass.ownedComment)/]
+  [aClass.superClasses()/]
+.
+
+[for ( anAttribute : Property | aClass.e_attributes() ) ]
+[anAttribute.attributeOnto()/]
+[/for]
+
+[for ( anAssociation : Association | aClass.eInverse(Association) ) ?(anAssociation.source() = aClass) ]
+[anAssociation.associationOnto(aClass)/]
+[/for]
+[/template]
+</code></pre>
+</div>
+<div class="font50p docutils container">
+Source files at
+<a target="_blank" href="https://bitbucket.org/wackerow/ucmis.m2t/src/master/src/ucmis/m2t/target/onto/">UCMIS M2T repository</a>.</div>
+</section>
+<section >
+<h2>JSON-LD</h2>
+<ul class="simple">
+<li><p>Main file <a class="reference external" href="https://ddi-cdi.github.io/ddi-cdi_v1.0-rc3/encoding/json-ld/ddi-cdi.jsonld">ddi-cdi.jsonld</a></p></li>
+<li><p>Fragments per class and data types are available in the field-level documentation of DDI-CDI. See the section ‘encodings’ on the bottom of the
+example <a class="reference external" href="https://ddi-cdi.github.io/ddi-cdi_v1.0-rc3/field-level-documentation/DDICDILibrary/Classes/Conceptual/InstanceVariable.html#inheritance">InstanceVariable</a>.</p></li>
+</ul>
+</section>
+</section>
+
+        </div>
+    </div>
+    
+    <script src="../_static/revealjs/dist/reveal.js"></script>
+    
+    
+      <script src="../_static/revealjs/plugin/highlight/highlight.js"></script>
+      <script src="../_static/revealjs/plugin/zoom/zoom.js"></script>
+      <script src="../_static/menu.js"></script>
+      
+    
+    <script>
+        var revealjsConfig = new Object();
+        Object.assign(revealjsConfig, {"hash": true, "slideNumber": "c/t", "menu": {"side": "left", "width": "normal", "numbers": false, "titleSelector": "h1, h2, h3, h4, h5, h6", "useTextContentForMissingTitles": false, "hideMissingTitles": false, "markers": true, "custom": false, "themes": false, "themesPath": "dist/theme/", "transitions": false, "openButton": true, "openSlideNumber": false, "keyboard": true, "sticky": false, "autoOpen": true, "delayInit": false, "openOnInit": false, "loadIcons": true}, "scrollActivationWidth": null});
+        
+        
+        
+          revealjsConfig.plugins = [
+            RevealHighlight,RevealZoom,RevealMenu,
+          ];
+        
+        // More info https://github.com/hakimel/reveal.js#configuration
+        Reveal.initialize(revealjsConfig);
+    </script>
+
+  </body>
+</html>

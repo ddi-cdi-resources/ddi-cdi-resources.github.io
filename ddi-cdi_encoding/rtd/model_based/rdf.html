@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>RDF &mdash; Syntax Representations of the DDI-CDI Model (Exploration)  documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="../_static/graphviz.css?v=eafc0fe6" />
+      <link rel="stylesheet" type="text/css" href="../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
+      <link rel="stylesheet" type="text/css" href="../_static/html_custom.css?v=f4d2740b" />
+      <link rel="stylesheet" type="text/css" href="../_static/common.css?v=81e0ad15" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../_static/documentation_options.js?v=8a448e45"></script>
+        <script src="../_static/doctools.js?v=888ff710"></script>
+        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="../_static/design-tabs.js?v=36754332"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="C#" href="../xsd_based/c%23/c%23.html" />
+    <link rel="prev" title="XML Schema" href="xsd.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Syntax Representations of the DDI-CDI Model (Exploration)
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../ddi-cdi.html">DDI-CDI</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ucmis.html">UCMIS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../canonical-xmi.html">Canonical XMI</a></li>
+<li class="toctree-l1"><a class="reference internal" href="xsd.html">XML Schema</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">RDF</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#ontology-as-turtle">Ontology as Turtle</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#generator-code-for-ontology-as-turtle">Generator Code for Ontology as Turtle</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#json-ld">JSON-LD</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../xsd_based/c%23/c%23.html">C#</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../xsd_based/c%2B%2B/c%2B%2B.html">C++</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../xsd_based/java/java.html">Java</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../xsd_based/json-schema/json-schema.html">JSON Schema</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../xsd_based/python/python.html">Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="python.html">Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../xsd_based/r/omegahat_XMLSchema/r.html">R Language</a></li>
+<li class="toctree-l1"><a class="reference internal" href="r.html">R Language</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../xsd_based/typescript/typescript.html">Typescript</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../open-issues.html">Open Issues</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Syntax Representations of the DDI-CDI Model (Exploration)</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">RDF</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="rdf">
+<h1>RDF<a class="headerlink" href="#rdf" title="Link to this heading"></a></h1>
+<p>The encodings <strong>ontology as Turtle</strong> and <strong>JSON-LD</strong> are directly based on the UML model.
+They are generated with the <a class="reference external" href="https://bitbucket.org/wackerow/ucmis.m2t/src/master/">UCMIS Model-to-Text tool</a>.</p>
+<section id="ontology-as-turtle">
+<h2>Ontology as Turtle<a class="headerlink" href="#ontology-as-turtle" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p>Main file <a class="reference external" href="https://ddi-cdi.github.io/ddi-cdi_v1.0-rc3/encoding/ontology/ddi-cdi.onto.ttl">ddi-cdi.onto.ttl</a></p></li>
+<li><p>Fragments per class and data types are available in the field-level documentation of DDI-CDI. See the section ‘encodings’ on the
+bottom of the example <a class="reference external" href="https://ddi-cdi.github.io/ddi-cdi_v1.0-rc3/field-level-documentation/DDICDILibrary/Classes/Conceptual/InstanceVariable.html#inheritance">InstanceVariable</a>.</p></li>
+</ul>
+</section>
+<section id="generator-code-for-ontology-as-turtle">
+<h2>Generator Code for Ontology as Turtle<a class="headerlink" href="#generator-code-for-ontology-as-turtle" title="Link to this heading"></a></h2>
+<p>Acceleo code for generating Turtle on the basis of UML classes.</p>
+<div class="literal-block-wrapper docutils container" id="id2">
+<div class="code-block-caption"><span class="caption-text">classOnto.mtl</span><a class="headerlink" href="#id2" title="Link to this code"></a></div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span>[comment encoding = UTF-8 /]
+<span class="linenos"> 2</span>[module classOnto(&#39;http://www.eclipse.org/uml2/5.0.0/Types&#39;, &#39;http://www.eclipse.org/uml2/5.0.0/UML&#39;, &#39;http://www.eclipse.org/uml2/5.0.0/UML/Profile/Standard&#39;)]
+<span class="linenos"> 3</span>
+<span class="linenos"> 4</span>[import ucmis::m2t::query::modelQuery /]
+<span class="linenos"> 5</span>[import ucmis::m2t::target::rdf::commonRdf /]
+<span class="linenos"> 6</span>[import ucmis::m2t::target::onto::associationOnto /]
+<span class="linenos"> 7</span>[import ucmis::m2t::target::onto::commonOnto /]
+<span class="linenos"> 8</span>
+<span class="linenos"> 9</span>[template public classOnto(aClass : Class)]
+<span class="linenos">10</span># class [aClass.name/]
+<span class="linenos">11</span># based on the UML class [aClass.qualifiedName/]
+<span class="linenos">12</span>[aClass.iri()/]
+<span class="linenos">13</span>  a rdfs:Class, owl:Class, ucmis:Class;
+<span class="linenos">14</span>  rdfs:label &quot;[aClass.name/]&quot;;
+<span class="linenos">15</span>  [rdfs_comment(aClass.ownedComment)/]
+<span class="linenos">16</span>  [aClass.superClasses()/]
+<span class="linenos">17</span>.
+<span class="linenos">18</span>
+<span class="linenos">19</span>[for ( anAttribute : Property | aClass.e_attributes() ) ]
+<span class="linenos">20</span>[anAttribute.attributeOnto()/]
+<span class="linenos">21</span>[/for]
+<span class="linenos">22</span>
+<span class="linenos">23</span>[for ( anAssociation : Association | aClass.eInverse(Association) ) ?(anAssociation.source() = aClass) ]
+<span class="linenos">24</span>[anAssociation.associationOnto(aClass)/]
+<span class="linenos">25</span>[/for]
+<span class="linenos">26</span>[/template]
+</pre></div>
+</div>
+</div>
+<div class="font50p docutils container">
+Source files at
+<a target="_blank" href="https://bitbucket.org/wackerow/ucmis.m2t/src/master/src/ucmis/m2t/target/onto/">UCMIS M2T repository</a>.</div>
+</section>
+<section id="json-ld">
+<h2>JSON-LD<a class="headerlink" href="#json-ld" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p>Main file <a class="reference external" href="https://ddi-cdi.github.io/ddi-cdi_v1.0-rc3/encoding/json-ld/ddi-cdi.jsonld">ddi-cdi.jsonld</a></p></li>
+<li><p>Fragments per class and data types are available in the field-level documentation of DDI-CDI. See the section ‘encodings’ on the bottom of the
+example <a class="reference external" href="https://ddi-cdi.github.io/ddi-cdi_v1.0-rc3/field-level-documentation/DDICDILibrary/Classes/Conceptual/InstanceVariable.html#inheritance">InstanceVariable</a>.</p></li>
+</ul>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="xsd.html" class="btn btn-neutral float-left" title="XML Schema" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../xsd_based/c%23/c%23.html" class="btn btn-neutral float-right" title="C#" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p></p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>  
+
+  <style>
+         .wy-nav-content { max-width: none; }
+  </style>
+
+
+
+</body>
+</html>

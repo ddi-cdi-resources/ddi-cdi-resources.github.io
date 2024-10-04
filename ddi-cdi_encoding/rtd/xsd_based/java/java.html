@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Java &mdash; Syntax Representations of the DDI-CDI Model (Exploration)  documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="../../_static/graphviz.css?v=eafc0fe6" />
+      <link rel="stylesheet" type="text/css" href="../../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
+      <link rel="stylesheet" type="text/css" href="../../_static/html_custom.css?v=f4d2740b" />
+      <link rel="stylesheet" type="text/css" href="../../_static/common.css?v=81e0ad15" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../../_static/documentation_options.js?v=8a448e45"></script>
+        <script src="../../_static/doctools.js?v=888ff710"></script>
+        <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="../../_static/design-tabs.js?v=36754332"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="JSON Schema" href="../json-schema/json-schema.html" />
+    <link rel="prev" title="C++" href="../c%2B%2B/c%2B%2B.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            Syntax Representations of the DDI-CDI Model (Exploration)
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../ddi-cdi.html">DDI-CDI</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../ucmis.html">UCMIS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../canonical-xmi.html">Canonical XMI</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../model_based/xsd.html">XML Schema</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../model_based/rdf.html">RDF</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../c%23/c%23.html">C#</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../c%2B%2B/c%2B%2B.html">C++</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Java</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#jaxb-generation-windows-batch-file">JAXB Generation - Windows Batch File</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#generation-with-xmlbeans-ant-build-file">Generation with XMLBeans - Ant Build File</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#evaluation">Evaluation</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../json-schema/json-schema.html">JSON Schema</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python/python.html">Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../model_based/python.html">Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../r/omegahat_XMLSchema/r.html">R Language</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../model_based/r.html">R Language</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../typescript/typescript.html">Typescript</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../open-issues.html">Open Issues</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Syntax Representations of the DDI-CDI Model (Exploration)</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Java</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="java">
+<h1>Java<a class="headerlink" href="#java" title="Link to this heading"></a></h1>
+<div class="line-block">
+<div class="line">Approaches are based on the XML Schema:</div>
+<div class="line"><strong>JAXB</strong> and <strong>XMLBeans</strong></div>
+</div>
+<ul class="simple">
+<li><p><a class="reference external" href="https://eclipse-ee4j.github.io/jaxb-ri/">JAXB - Eclipse Jakarta XML Binding</a> provides an API and tools that automate the mapping between XML documents and Java objects.</p></li>
+<li><p><a class="reference external" href="https://xmlbeans.apache.org/">Apache XMLBeans</a> is a technology for accessing XML by binding it to Java types.</p></li>
+</ul>
+<section id="jaxb-generation-windows-batch-file">
+<h2>JAXB Generation - Windows Batch File<a class="headerlink" href="#jaxb-generation-windows-batch-file" title="Link to this heading"></a></h2>
+<div class="literal-block-wrapper docutils container" id="id1">
+<div class="code-block-caption"><span class="caption-text">run_xjc.cmd</span><a class="headerlink" href="#id1" title="Link to this code"></a></div>
+<div class="highlight-bat notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="k">set</span> <span class="nv">JAXB_HOME</span><span class="p">=</span>C:\Programs\jaxb\jaxb-ri-4.0.3\jaxb-ri
+<span class="linenos"> 2</span><span class="k">set</span> <span class="nv">XSD_HOME</span><span class="p">=</span>..\..\model_based\xsd_variants
+<span class="linenos"> 3</span>
+<span class="linenos"> 4</span><span class="k">IF</span> <span class="k">EXIST</span> jaxb_42 <span class="k">RMDIR</span> /S /Q jaxb_42
+<span class="linenos"> 5</span><span class="k">IF</span> <span class="k">NOT</span> <span class="k">EXIST</span> jaxb_42 <span class="k">MKDIR</span> jaxb_42
+<span class="linenos"> 6</span><span class="k">call</span> <span class="nv">%JAXB_HOME%</span>\bin\xjc.bat -d jaxb_42 <span class="s2">&quot;</span><span class="nv">%XSD_HOME%</span><span class="s2">\ddi-cdi_42_noXsdTypeInName.xsd&quot;</span>
+<span class="linenos"> 7</span>
+<span class="linenos"> 8</span><span class="k">IF</span> <span class="k">EXIST</span> jaxb_43 <span class="k">RMDIR</span> /S /Q jaxb_43
+<span class="linenos"> 9</span><span class="k">IF</span> <span class="k">NOT</span> <span class="k">EXIST</span> jaxb_43 <span class="k">MKDIR</span> jaxb_43
+<span class="linenos">10</span><span class="k">call</span> <span class="nv">%JAXB_HOME%</span>\bin\xjc.bat -d jaxb_43 <span class="s2">&quot;</span><span class="nv">%XSD_HOME%</span><span class="s2">\ddi-cdi_43_noXsdTypeInName.xsd&quot;</span>
+<span class="linenos">11</span>
+<span class="linenos">12</span><span class="k">IF</span> <span class="k">EXIST</span> jaxb_44 <span class="k">RMDIR</span> /S /Q jaxb_44
+<span class="linenos">13</span><span class="k">IF</span> <span class="k">NOT</span> <span class="k">EXIST</span> jaxb_44 <span class="k">MKDIR</span> jaxb_44
+<span class="linenos">14</span><span class="k">call</span> <span class="nv">%JAXB_HOME%</span>\bin\xjc.bat -d jaxb_44 <span class="s2">&quot;</span><span class="nv">%XSD_HOME%</span><span class="s2">\ddi-cdi_44_noXsdTypeInName.xsd&quot;</span>
+<span class="linenos">15</span>
+<span class="linenos">16</span><span class="k">IF</span> <span class="k">EXIST</span> jaxb_45 <span class="k">RMDIR</span> /S /Q jaxb_45
+<span class="linenos">17</span><span class="k">IF</span> <span class="k">NOT</span> <span class="k">EXIST</span> jaxb_45 <span class="k">MKDIR</span> jaxb_45
+<span class="linenos">18</span><span class="k">call</span> <span class="nv">%JAXB_HOME%</span>\bin\xjc.bat -d jaxb_45 <span class="s2">&quot;</span><span class="nv">%XSD_HOME%</span><span class="s2">\ddi-cdi_45_noXsdTypeInName.xsd&quot;</span>
+<span class="linenos">19</span>
+<span class="linenos">20</span><span class="k">set</span> <span class="nv">JAXB_HOME</span><span class="p">=</span>
+<span class="linenos">21</span><span class="k">set</span> <span class="nv">XSD_HOME</span><span class="p">=</span>
+</pre></div>
+</div>
+</div>
+</section>
+<section id="generation-with-xmlbeans-ant-build-file">
+<h2>Generation with XMLBeans - Ant Build File<a class="headerlink" href="#generation-with-xmlbeans-ant-build-file" title="Link to this heading"></a></h2>
+<div class="literal-block-wrapper docutils container" id="id2">
+<div class="code-block-caption"><span class="caption-text">build.xml</span><a class="headerlink" href="#id2" title="Link to this code"></a></div>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</span>
+<span class="linenos"> 2</span><span class="nt">&lt;project</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;ddi-cdi-xmlbeans&quot;</span><span class="w"> </span><span class="na">default=</span><span class="s">&quot;create-xmlbeans&quot;</span><span class="nt">&gt;</span>
+<span class="linenos"> 3</span><span class="w">	</span><span class="cm">&lt;!-- xmlbeans location --&gt;</span>
+<span class="linenos"> 4</span><span class="w">	</span><span class="nt">&lt;property</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;xmlbeans.lib.dir&quot;</span><span class="w"> </span><span class="na">location=</span><span class="s">&quot;C:/Programs/xmlbeans-5.2.0/lib&quot;</span><span class="nt">/&gt;</span>
+<span class="linenos"> 5</span><span class="w">	</span><span class="cm">&lt;!-- Set the classpath --&gt;</span>
+<span class="linenos"> 6</span><span class="w">	</span><span class="nt">&lt;path</span><span class="w"> </span><span class="na">id=</span><span class="s">&quot;build.classpath&quot;</span><span class="nt">&gt;</span>
+<span class="linenos"> 7</span><span class="w">		</span><span class="nt">&lt;fileset</span><span class="w"> </span><span class="na">dir=</span><span class="s">&quot;${xmlbeans.lib.dir}&quot;</span><span class="nt">&gt;</span>
+<span class="linenos"> 8</span><span class="w">			</span><span class="nt">&lt;include</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;*.jar&quot;</span><span class="nt">/&gt;</span>
+<span class="linenos"> 9</span><span class="w">		</span><span class="nt">&lt;/fileset&gt;</span>
+<span class="linenos">10</span><span class="w">	</span><span class="nt">&lt;/path&gt;</span>
+<span class="linenos">11</span><span class="w">	</span><span class="nt">&lt;taskdef</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;xmlbeans&quot;</span><span class="w"> </span><span class="na">classname=</span><span class="s">&quot;org.apache.xmlbeans.impl.tool.XMLBean&quot;</span><span class="w"> </span><span class="na">classpath=</span><span class="s">&quot;${xmlbeans.lib.dir}/xmlbeans-5.2.0.jar&quot;</span><span class="w"> </span><span class="na">classpathref=</span><span class="s">&quot;build.classpath&quot;</span><span class="nt">/&gt;</span>
+<span class="linenos">12</span><span class="w">	</span><span class="cm">&lt;!-- ddi-cdi schema --&gt;</span>
+<span class="linenos">13</span><span class="w">	</span><span class="nt">&lt;property</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;xsd_42&quot;</span><span class="w"> </span><span class="na">location=</span><span class="s">&quot;../../model_based/xsd_variants/ddi-cdi_42_noXsdTypeInName.xsd&quot;</span><span class="nt">/&gt;</span>
+<span class="linenos">14</span><span class="w">	</span><span class="nt">&lt;property</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;xsd_43&quot;</span><span class="w"> </span><span class="na">location=</span><span class="s">&quot;../../model_based/xsd_variants/ddi-cdi_43_noXsdTypeInName.xsd&quot;</span><span class="nt">/&gt;</span>
+<span class="linenos">15</span><span class="w">	</span><span class="nt">&lt;property</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;xsd_44&quot;</span><span class="w"> </span><span class="na">location=</span><span class="s">&quot;../../model_based/xsd_variants/ddi-cdi_44_noXsdTypeInName.xsd&quot;</span><span class="nt">/&gt;</span>
+<span class="linenos">16</span><span class="w">	</span><span class="nt">&lt;property</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;xsd_45&quot;</span><span class="w"> </span><span class="na">location=</span><span class="s">&quot;../../model_based/xsd_variants/ddi-cdi_45_noXsdTypeInName.xsd&quot;</span><span class="nt">/&gt;</span>
+<span class="linenos">17</span><span class="w">	</span><span class="nt">&lt;target</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;create-xmlbeans&quot;</span><span class="nt">&gt;</span>
+<span class="linenos">18</span><span class="w">		</span><span class="nt">&lt;xmlbeans</span><span class="w"> </span><span class="na">schema=</span><span class="s">&quot;${xsd_42}&quot;</span><span class="w"> </span><span class="na">download=</span><span class="s">&quot;true&quot;</span><span class="w"> </span><span class="na">classpath=</span><span class="s">&quot;ddi-cdi-xmlbeans.jar&quot;</span><span class="w"> </span><span class="na">srconly=</span><span class="s">&quot;true&quot;</span><span class="w"> </span><span class="na">srcgendir=</span><span class="s">&quot;xmlbeans_42&quot;</span><span class="nt">/&gt;</span>
+<span class="linenos">19</span><span class="w">		</span><span class="nt">&lt;xmlbeans</span><span class="w"> </span><span class="na">schema=</span><span class="s">&quot;${xsd_43}&quot;</span><span class="w"> </span><span class="na">download=</span><span class="s">&quot;true&quot;</span><span class="w"> </span><span class="na">classpath=</span><span class="s">&quot;ddi-cdi-xmlbeans.jar&quot;</span><span class="w"> </span><span class="na">srconly=</span><span class="s">&quot;true&quot;</span><span class="w"> </span><span class="na">srcgendir=</span><span class="s">&quot;xmlbeans_43&quot;</span><span class="nt">/&gt;</span>
+<span class="linenos">20</span><span class="w">		</span><span class="nt">&lt;xmlbeans</span><span class="w"> </span><span class="na">schema=</span><span class="s">&quot;${xsd_44}&quot;</span><span class="w"> </span><span class="na">download=</span><span class="s">&quot;true&quot;</span><span class="w"> </span><span class="na">classpath=</span><span class="s">&quot;ddi-cdi-xmlbeans.jar&quot;</span><span class="w"> </span><span class="na">srconly=</span><span class="s">&quot;true&quot;</span><span class="w"> </span><span class="na">srcgendir=</span><span class="s">&quot;xmlbeans_44&quot;</span><span class="nt">/&gt;</span>
+<span class="linenos">21</span><span class="w">		</span><span class="nt">&lt;xmlbeans</span><span class="w"> </span><span class="na">schema=</span><span class="s">&quot;${xsd_45}&quot;</span><span class="w"> </span><span class="na">download=</span><span class="s">&quot;true&quot;</span><span class="w"> </span><span class="na">classpath=</span><span class="s">&quot;ddi-cdi-xmlbeans.jar&quot;</span><span class="w"> </span><span class="na">srconly=</span><span class="s">&quot;true&quot;</span><span class="w"> </span><span class="na">srcgendir=</span><span class="s">&quot;xmlbeans_45&quot;</span><span class="nt">/&gt;</span>
+<span class="linenos">22</span><span class="w">	</span><span class="nt">&lt;/target&gt;</span>
+<span class="linenos">23</span><span class="nt">&lt;/project&gt;</span>
+</pre></div>
+</div>
+</div>
+</section>
+<section id="evaluation">
+<h2>Evaluation<a class="headerlink" href="#evaluation" title="Link to this heading"></a></h2>
+<p>JAXB seems to be the better choice. XMLBeans doesn’t … (to be filled in)</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="../c%2B%2B/c%2B%2B.html" class="btn btn-neutral float-left" title="C++" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../json-schema/json-schema.html" class="btn btn-neutral float-right" title="JSON Schema" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p></p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>  
+
+  <style>
+         .wy-nav-content { max-width: none; }
+  </style>
+
+
+
+</body>
+</html>

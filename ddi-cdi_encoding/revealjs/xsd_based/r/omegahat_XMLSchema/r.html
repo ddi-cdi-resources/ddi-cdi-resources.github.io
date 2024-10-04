@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+
+<html lang="en" data-content_root="../../../">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <title>R Language</title>
+    <link rel="stylesheet" type="text/css" href="../../../_static/revealjs/dist/reveal.css?v=40f0a724" />
+    <link rel="stylesheet" href="../../../_static/revealjs/dist/theme/sky.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/revealjs_custom.css?v=155d2288" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/common.css?v=51d1a8f8" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/custom.css?v=3184803b" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/menu.css?v=b1df3480" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/revealjs4/plugin/highlight/monokai.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/graphviz.css" />
+    <script src="../../../_static/design-tabs.js?v=36754332"></script>
+    <link rel="next" title="R Language" href="../../../model_based/r.html" />
+    <link rel="prev" title="Python" href="../../../model_based/python.html" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+  </head><body>
+    <div class="reveal">
+        <div class="slides" role="main">
+            <section data-name="R">
+<section >
+<h1>R Language</h1>
+<p>Approach is based on a XML Schema.</p>
+<p><strong>R XMLSchema</strong> from Duncan Temple Lang.</p>
+<div class="font50p docutils container">
+<p><em>A package that reads XML schema into an R representation
+and can perform some operations on the resulting information to generate
+class definitions and code to read documents using this schema.</em></p>
+</div>
+<p>The R representation uses S4 classes.</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/omegahat/XMLSchema">github repository</a></p></li>
+<li><p>Usage of <a class="reference external" href="https://rdrr.io/github/omegahat/XMLSchema/man/readSchema.html">readSchema</a></p></li>
+</ul>
+</section>
+</section>
+<section >
+<h2>Installation of XMLSchema in R</h2>
+<pre data-id="installation-of-xmlschema-in-r"><code data-trim data-noescape class="r" data-line-numbers>install.packages(&quot;remotes&quot;)
+remotes::install_github(&quot;omegahat/XMLSchema&quot;)
+install.packages(&quot;sloop&quot;)
+</code></pre>
+</section>
+<section >
+<h2>Test Run</h2>
+<p>An internal representation of the XML schema is created as S4 classes.</p>
+<pre data-id="test-run"><code data-trim data-noescape class="r" data-line-numbers>options(echo=TRUE)
+
+library(sloop)
+library(XML)
+library(XMLSchema)
+
+args &lt;- commandArgs(TRUE)
+print(args[1])
+
+print('--------------------------------------------------')
+cdi = readSchema(args[1], createConverters = TRUE, verbose = TRUE)
+# cdi = readSchema(&quot;E:/Git/ddi-cdi/build/encoding/xml-schema/ddi-cdi.xsd&quot;, createConverters = TRUE)
+
+print('--------------------------------------------------')
+is(cdi)
+
+print('--------------------------------------------------')
+otype(cdi)
+
+print('--------------------------------------------------')
+class(cdi)
+
+print('--------------------------------------------------')
+names(cdi)
+
+print('--------------------------------------------------')
+sapply(cdi, length)
+
+print('--------------------------------------------------')
+sapply(cdi, class)
+
+print('--------------------------------------------------')
+sapply(cdi, names)
+
+print('--------------------------------------------------')
+showMethods( classes=class(cdi) )
+
+print('--------------------------------------------------')
+print(cdi)
+
+print('--------------------------------------------------')
+saveRDS(cdi, 'cdi.rds')
+rm(cdi)
+exists(&quot;cdi&quot;)
+cdi &lt;- readRDS('cdi.rds')
+otype(cdi)
+class(cdi)
+names(cdi)
+
+# serialize S4 classes, not sure if this is right
+sink(&quot;cdi.R&quot;)
+sapply(cdi, expandS4)
+sink()
+</code></pre>
+</section>
+<section >
+<h2>Documentation of XMLSchema</h2>
+<p>In R:</p>
+<pre data-id="documentation-of-xmlschema"><code data-trim data-noescape class="r">help(package=&quot;XMLSchema&quot;)</code></pre>
+<p>Once a local web server has been started, the documentation is displayed in the web browser.</p>
+</section>
+</section>
+
+        </div>
+    </div>
+    
+    <script src="../../../_static/revealjs/dist/reveal.js"></script>
+    
+    
+      <script src="../../../_static/revealjs/plugin/highlight/highlight.js"></script>
+      <script src="../../../_static/revealjs/plugin/zoom/zoom.js"></script>
+      <script src="../../../_static/menu.js"></script>
+      
+    
+    <script>
+        var revealjsConfig = new Object();
+        Object.assign(revealjsConfig, {"hash": true, "slideNumber": "c/t", "menu": {"side": "left", "width": "normal", "numbers": false, "titleSelector": "h1, h2, h3, h4, h5, h6", "useTextContentForMissingTitles": false, "hideMissingTitles": false, "markers": true, "custom": false, "themes": false, "themesPath": "dist/theme/", "transitions": false, "openButton": true, "openSlideNumber": false, "keyboard": true, "sticky": false, "autoOpen": true, "delayInit": false, "openOnInit": false, "loadIcons": true}, "scrollActivationWidth": null});
+        
+        
+        
+          revealjsConfig.plugins = [
+            RevealHighlight,RevealZoom,RevealMenu,
+          ];
+        
+        // More info https://github.com/hakimel/reveal.js#configuration
+        Reveal.initialize(revealjsConfig);
+    </script>
+
+  </body>
+</html>

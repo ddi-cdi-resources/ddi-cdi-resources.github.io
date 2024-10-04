@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+
+<html lang="en" data-content_root="../../">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <title>C++</title>
+    <link rel="stylesheet" type="text/css" href="../../_static/revealjs/dist/reveal.css?v=40f0a724" />
+    <link rel="stylesheet" href="../../_static/revealjs/dist/theme/sky.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/revealjs_custom.css?v=155d2288" />
+    <link rel="stylesheet" type="text/css" href="../../_static/common.css?v=51d1a8f8" />
+    <link rel="stylesheet" type="text/css" href="../../_static/custom.css?v=3184803b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/menu.css?v=b1df3480" />
+    <link rel="stylesheet" type="text/css" href="../../_static/revealjs4/plugin/highlight/monokai.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
+    <link rel="stylesheet" type="text/css" href="../../_static/graphviz.css" />
+    <script src="../../_static/design-tabs.js?v=36754332"></script>
+    <link rel="next" title="Java" href="../java/java.html" />
+    <link rel="prev" title="C#" href="../c%23/c%23.html" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+  </head><body>
+    <div class="reveal">
+        <div class="slides" role="main">
+            <section data-name="C++">
+<section >
+<h1>C++</h1>
+<p>Based on the XML Schema.</p>
+<p><strong>CodeSynthesis XSD</strong> is an open-source, cross-platform W3C XML Schema to C++ data binding compiler.</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://www.codesynthesis.com/products/xsd/">Product</a></p></li>
+<li><p><a class="reference external" href="https://www.codesynthesis.com/download/xsd/4.2/windows/README.xhtml">Installing XSD on Windows</a></p></li>
+<li><p><a class="reference external" href="https://www.codesynthesis.com/projects/xsd/documentation/cxx/tree/guide/">C++/Tree Mapping Getting Started Guide</a></p></li>
+</ul>
+</section>
+</section>
+<section >
+<h2>Windows Batch File</h2>
+<div class="literal-block-wrapper docutils container" id="id1">
+<div class="code-block-caption"><span class="caption-text">run_xsd.cmd</span></div>
+<pre><code data-trim data-noescape class="bat" data-line-numbers>set XSD_HOME=..\..\model_based\xsd_variants
+set XSD_EXE_FOLDER=C:\Programs\c++xsd\xsd-4.2.0-x86_64-windows10\bin
+rem set XSD_EXE_FOLDER=E:\DDI\CDI\SyntaxRepresentation\encoding\c++\xsd-4.2.0-x86_64-windows10\bin
+
+%XSD_EXE_FOLDER%\xsd.exe cxx-tree --root-element DDICDIModels %XSD_HOME%\ddi-cdi_42_noXsdTypeInName.xsd
+rem %XSD_EXE_FOLDER%\xsd.exe cxx-tree --root-element DDICDIModels %XSD_HOME%\ddi-cdi_43_noXsdTypeInName.xsd
+rem %XSD_EXE_FOLDER%\xsd.exe cxx-tree --root-element DDICDIModels %XSD_HOME%\ddi-cdi_44_noXsdTypeInName.xsd
+rem %XSD_EXE_FOLDER%\xsd.exe cxx-tree --root-element DDICDIModels %XSD_HOME%\ddi-cdi_45_noXsdTypeInName.xsd
+
+set XSD_HOME=
+set XSD_EXE_FOLDER=
+</code></pre>
+</div>
+<div class="font50p docutils container">
+<p>Source file <a class="reference external" href="https://github.com/ddi-cdi-resources/ddi-cdi_encoding/tree/main/encoding/xsd_based/c%2B%2B/run_xsd.cmd">run_xsd.cmd</a></p>
+</div>
+</section>
+<section >
+<h2>Generated Files</h2>
+<p>A code file and a header file are generated for C++.</p>
+</section>
+<section >
+<h2>C++ Code File Fragment</h2>
+<div class="literal-block-wrapper docutils container" id="id2">
+<div class="code-block-caption"><span class="caption-text">Fragment of ddi-cdi_44_noXsdTypeInName.cxx</span></div>
+<pre><code data-trim data-noescape class="c" data-line-numbers>#include &lt;xsd/cxx/pre.hxx&gt;
+
+#include &quot;ddi-cdi_44_noXsdTypeInName.hxx&quot;
+
+namespace XMLSchema
+{
+  // DDICDIModels
+  //
+
+  const DDICDIModels::Activity_sequence&amp; DDICDIModels::
+  Activity () const
+  {
+    return this-&gt;Activity_;
+  }
+
+  DDICDIModels::Activity_sequence&amp; DDICDIModels::
+  Activity ()
+  {
+    return this-&gt;Activity_;
+  }
+
+  void DDICDIModels::
+  Activity (const Activity_sequence&amp; s)
+  {
+    this-&gt;Activity_ = s;
+  }
+</code></pre>
+</div>
+<div class="font50p docutils container">
+<p>Source file <a class="reference external" href="https://github.com/ddi-cdi-resources/ddi-cdi_encoding/tree/main/encoding/xsd_based/c%2B%2B/ddi-cdi_44_noXsdTypeInName.cxx">ddi-cdi.cxx</a></p>
+</div>
+</section>
+<section >
+<h2>C++ Header File Fragment</h2>
+<div class="literal-block-wrapper docutils container" id="id3">
+<div class="code-block-caption"><span class="caption-text">Fragment of ddi-cdi_44_noXsdTypeInName.hxx</span></div>
+<pre><code data-trim data-noescape class="c" data-line-numbers>    // AuthorizationSource
+    //
+    typedef ::XMLSchema::AuthorizationSource AuthorizationSource_type;
+    typedef ::xsd::cxx::tree::sequence&lt; AuthorizationSource_type &gt; AuthorizationSource_sequence;
+    typedef AuthorizationSource_sequence::iterator AuthorizationSource_iterator;
+    typedef AuthorizationSource_sequence::const_iterator AuthorizationSource_const_iterator;
+    typedef ::xsd::cxx::tree::traits&lt; AuthorizationSource_type, char &gt; AuthorizationSource_traits;
+
+    const AuthorizationSource_sequence&amp;
+    AuthorizationSource () const;
+
+    AuthorizationSource_sequence&amp;
+    AuthorizationSource ();
+
+    void
+    AuthorizationSource (const AuthorizationSource_sequence&amp; s);
+
+    // Category
+    //
+    typedef ::XMLSchema::Category Category_type;
+    typedef ::xsd::cxx::tree::sequence&lt; Category_type &gt; Category_sequence;
+</code></pre>
+</div>
+<div class="font50p docutils container">
+<p>Source file <a class="reference external" href="https://github.com/ddi-cdi-resources/ddi-cdi_encoding/tree/main/encoding/xsd_based/c%2B%2B/ddi-cdi_44_noXsdTypeInName.hxx">ddi-cdi.hxx</a></p>
+</div>
+</section>
+</section>
+
+        </div>
+    </div>
+    
+    <script src="../../_static/revealjs/dist/reveal.js"></script>
+    
+    
+      <script src="../../_static/revealjs/plugin/highlight/highlight.js"></script>
+      <script src="../../_static/revealjs/plugin/zoom/zoom.js"></script>
+      <script src="../../_static/menu.js"></script>
+      
+    
+    <script>
+        var revealjsConfig = new Object();
+        Object.assign(revealjsConfig, {"hash": true, "slideNumber": "c/t", "menu": {"side": "left", "width": "normal", "numbers": false, "titleSelector": "h1, h2, h3, h4, h5, h6", "useTextContentForMissingTitles": false, "hideMissingTitles": false, "markers": true, "custom": false, "themes": false, "themesPath": "dist/theme/", "transitions": false, "openButton": true, "openSlideNumber": false, "keyboard": true, "sticky": false, "autoOpen": true, "delayInit": false, "openOnInit": false, "loadIcons": true}, "scrollActivationWidth": null});
+        
+        
+        
+          revealjsConfig.plugins = [
+            RevealHighlight,RevealZoom,RevealMenu,
+          ];
+        
+        // More info https://github.com/hakimel/reveal.js#configuration
+        Reveal.initialize(revealjsConfig);
+    </script>
+
+  </body>
+</html>

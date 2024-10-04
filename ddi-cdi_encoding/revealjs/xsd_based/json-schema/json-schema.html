@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+
+<html lang="en" data-content_root="../../">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <title>JSON Schema</title>
+    <link rel="stylesheet" type="text/css" href="../../_static/revealjs/dist/reveal.css?v=40f0a724" />
+    <link rel="stylesheet" href="../../_static/revealjs/dist/theme/sky.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/revealjs_custom.css?v=155d2288" />
+    <link rel="stylesheet" type="text/css" href="../../_static/common.css?v=51d1a8f8" />
+    <link rel="stylesheet" type="text/css" href="../../_static/custom.css?v=3184803b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/menu.css?v=b1df3480" />
+    <link rel="stylesheet" type="text/css" href="../../_static/revealjs4/plugin/highlight/monokai.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
+    <link rel="stylesheet" type="text/css" href="../../_static/graphviz.css" />
+    <script src="../../_static/design-tabs.js?v=36754332"></script>
+    <link rel="next" title="Python" href="../python/python.html" />
+    <link rel="prev" title="Java" href="../java/java.html" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+  </head><body>
+    <div class="reveal">
+        <div class="slides" role="main">
+            <section data-name="JSON Schema">
+<section >
+<h1>JSON Schema</h1>
+<div class="line-block">
+<div class="line">Approach is based on the XML Schema:</div>
+<div class="line"><strong>xsd2jsonschema</strong> - <em>A pure JavaScript library for translating complex XML Schemas into JSON Schemas.</em></div>
+</div>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/andrewbober/xsd2jsonschema">xsd2jsonschema repository</a></p></li>
+</ul>
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<p class="sd-card-text">Other known approaches are provided by the commercial products Altova XML Spy and Oxygen XML Editor.</p>
+</div>
+</div>
+</section>
+</section>
+<section >
+<h2>JSON Schema Generation with xsd2jsonschema - Windows Batch File</h2>
+<div class="literal-block-wrapper docutils container" id="id1">
+<div class="code-block-caption"><span class="caption-text">run.cmd</span></div>
+<pre><code data-trim data-noescape class="bat" data-line-numbers>node ddi-cdi.js &gt; ddi-cdi.schema.json</code></pre>
+</div>
+</section>
+<section >
+<h2>xs:choice Doesn’t Seem to be Implemented</h2>
+<div class="literal-block-wrapper docutils container" id="id2">
+<div class="code-block-caption"><span class="caption-text">generation.log</span></div>
+<pre><code data-trim data-noescape class="text" data-line-numbers>Error: choice array needs to be implemented!!
+    at ConverterDraft07.handleChoiceArray (E:\Git\ddi-cdi_encoding\encoding\xsd_based\json-schema\node_modules\xsd2jsonschema\src\converterDraft04.js:328:9)
+    at ConverterDraft07.choice (E:\Git\ddi-cdi_encoding\encoding\xsd_based\json-schema\node_modules\xsd2jsonschema\src\converterDraft04.js:357:16)
+    at ConverterDraft07.process (E:\Git\ddi-cdi_encoding\encoding\xsd_based\json-schema\node_modules\xsd2jsonschema\src\converterDraft04.js:134:33)
+    at BaseConversionVisitor.visit (E:\Git\ddi-cdi_encoding\encoding\xsd_based\json-schema\node_modules\xsd2jsonschema\src\visitors\visitor.js:60:26)
+    at DepthFirstTraversal.walk (E:\Git\ddi-cdi_encoding\encoding\xsd_based\json-schema\node_modules\xsd2jsonschema\src\depthFirstTraversal.js:47:34)
+    at DepthFirstTraversal.walk (E:\Git\ddi-cdi_encoding\encoding\xsd_based\json-schema\node_modules\xsd2jsonschema\src\depthFirstTraversal.js:52:12)
+    at DepthFirstTraversal.walk (E:\Git\ddi-cdi_encoding\encoding\xsd_based\json-schema\node_modules\xsd2jsonschema\src\depthFirstTraversal.js:52:12)
+    at DepthFirstTraversal.walk (E:\Git\ddi-cdi_encoding\encoding\xsd_based\json-schema\node_modules\xsd2jsonschema\src\depthFirstTraversal.js:52:12)
+    at DepthFirstTraversal.traverse (E:\Git\ddi-cdi_encoding\encoding\xsd_based\json-schema\node_modules\xsd2jsonschema\src\depthFirstTraversal.js:78:9)
+    at Xsd2JsonSchema.processSchema (E:\Git\ddi-cdi_encoding\encoding\xsd_based\json-schema\node_modules\xsd2jsonschema\src\xsd2JsonSchema.js:264:37)</code></pre>
+</div>
+</section>
+</section>
+
+        </div>
+    </div>
+    
+    <script src="../../_static/revealjs/dist/reveal.js"></script>
+    
+    
+      <script src="../../_static/revealjs/plugin/highlight/highlight.js"></script>
+      <script src="../../_static/revealjs/plugin/zoom/zoom.js"></script>
+      <script src="../../_static/menu.js"></script>
+      
+    
+    <script>
+        var revealjsConfig = new Object();
+        Object.assign(revealjsConfig, {"hash": true, "slideNumber": "c/t", "menu": {"side": "left", "width": "normal", "numbers": false, "titleSelector": "h1, h2, h3, h4, h5, h6", "useTextContentForMissingTitles": false, "hideMissingTitles": false, "markers": true, "custom": false, "themes": false, "themesPath": "dist/theme/", "transitions": false, "openButton": true, "openSlideNumber": false, "keyboard": true, "sticky": false, "autoOpen": true, "delayInit": false, "openOnInit": false, "loadIcons": true}, "scrollActivationWidth": null});
+        
+        
+        
+          revealjsConfig.plugins = [
+            RevealHighlight,RevealZoom,RevealMenu,
+          ];
+        
+        // More info https://github.com/hakimel/reveal.js#configuration
+        Reveal.initialize(revealjsConfig);
+    </script>
+
+  </body>
+</html>

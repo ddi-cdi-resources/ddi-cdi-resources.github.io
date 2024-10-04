@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+
+<html lang="en" data-content_root="../../">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <title>C#</title>
+    <link rel="stylesheet" type="text/css" href="../../_static/revealjs/dist/reveal.css?v=40f0a724" />
+    <link rel="stylesheet" href="../../_static/revealjs/dist/theme/sky.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/revealjs_custom.css?v=155d2288" />
+    <link rel="stylesheet" type="text/css" href="../../_static/common.css?v=51d1a8f8" />
+    <link rel="stylesheet" type="text/css" href="../../_static/custom.css?v=3184803b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/menu.css?v=b1df3480" />
+    <link rel="stylesheet" type="text/css" href="../../_static/revealjs4/plugin/highlight/monokai.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
+    <link rel="stylesheet" type="text/css" href="../../_static/graphviz.css" />
+    <script src="../../_static/design-tabs.js?v=36754332"></script>
+    <link rel="next" title="C++" href="../c%2B%2B/c%2B%2B.html" />
+    <link rel="prev" title="RDF" href="../../model_based/rdf.html" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+  </head><body>
+    <div class="reveal">
+        <div class="slides" role="main">
+            <section data-name="C#">
+<section >
+<h1>C#</h1>
+<p>Based on the XML Schema.</p>
+<p>The Microsoft <strong>XML Schema Definition</strong> (Xsd.exe) tool generates XML schema or common language runtime classes from
+XDR, XML, and XSD files, or from classes in a runtime assembly.</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://learn.microsoft.com/en-us/dotnet/standard/serialization/xml-schema-definition-tool-xsd-exe">XML Schema Definition tool</a></p></li>
+<li><p>Prerequisites: <a class="reference external" href="https://visualstudio.microsoft.com/downloads/">Visual Studio</a></p></li>
+</ul>
+</section>
+</section>
+<section >
+<h2>Windows Batch File</h2>
+<div class="literal-block-wrapper docutils container" id="id1">
+<div class="code-block-caption"><span class="caption-text">run_xsd.cmd</span></div>
+<pre><code data-trim data-noescape class="bat" data-line-numbers>set MICROSOFT_XSD=C:\Program Files (x86)\Microsoft SDKs\Windows\v10.0A\bin\NETFX 4.8 Tools\xsd
+set XSD_HOME=..\..\model_based\xsd_variants
+
+&quot;%MICROSOFT_XSD%&quot; &quot;%XSD_HOME%\ddi-cdi_42_noXsdTypeInName.xsd&quot; /classes /language:CS
+&quot;%MICROSOFT_XSD%&quot; &quot;%XSD_HOME%\ddi-cdi_43_noXsdTypeInName.xsd&quot; /classes /language:CS
+&quot;%MICROSOFT_XSD%&quot; &quot;%XSD_HOME%\ddi-cdi_44_noXsdTypeInName.xsd&quot; /classes /language:CS
+&quot;%MICROSOFT_XSD%&quot; &quot;%XSD_HOME%\ddi-cdi_45_noXsdTypeInName.xsd&quot; /classes /language:CS
+
+set MICROSOFT_XSD=
+set XSD_HOME=
+</code></pre>
+</div>
+</section>
+<section >
+<h2>Generated File</h2>
+<p>A code file is generated for C#.</p>
+<div class="literal-block-wrapper docutils container" id="id2">
+<div class="code-block-caption"><span class="caption-text">Fragment of ddi-cdi_44_noXsdTypeInName.cs</span></div>
+<pre><code data-trim data-noescape class="cs" data-line-numbers>[System.CodeDom.Compiler.GeneratedCodeAttribute(&quot;xsd&quot;, &quot;4.8.3928.0&quot;)]
+[System.SerializableAttribute()]
+[System.Diagnostics.DebuggerStepThroughAttribute()]
+[System.ComponentModel.DesignerCategoryAttribute(&quot;code&quot;)]
+[System.Xml.Serialization.XmlTypeAttribute(Namespace=&quot;http://ddialliance.org/Specification/DDI-CDI/1.0/XMLSchema/&quot;)]
+[System.Xml.Serialization.XmlRootAttribute(Namespace=&quot;http://ddialliance.org/Specification/DDI-CDI/1.0/XMLSchema/&quot;, IsNullable=false)]
+public partial class DDICDIModels {
+    
+    private object[] itemsField;
+    
+    private Wrapper[] wrapperField;
+    
+    /// &lt;remarks/&gt;
+    [System.Xml.Serialization.XmlElementAttribute(&quot;Activity&quot;, typeof(Activity))]
+    [System.Xml.Serialization.XmlElementAttribute(&quot;Agent&quot;, typeof(Agent))]
+    [System.Xml.Serialization.XmlElementAttribute(&quot;AgentListing&quot;, typeof(AgentListing))]
+    [System.Xml.Serialization.XmlElementAttribute(&quot;AgentPosition&quot;, typeof(AgentPosition))]
+    [System.Xml.Serialization.XmlElementAttribute(&quot;AgentRelationship&quot;, typeof(AgentRelationship))]
+    [System.Xml.Serialization.XmlElementAttribute(&quot;AgentStructure&quot;, typeof(AgentStructure))]
+    [System.Xml.Serialization.XmlElementAttribute(&quot;AllenIntervalAlgebra&quot;, typeof(AllenIntervalAlgebra))]
+    [System.Xml.Serialization.XmlElementAttribute(&quot;AttributeComponent&quot;, typeof(AttributeComponent))]
+    [System.Xml.Serialization.XmlElementAttribute(&quot;AuthorizationSource&quot;, typeof(AuthorizationSource))]
+    [System.Xml.Serialization.XmlElementAttribute(&quot;Category&quot;, typeof(Category))]
+    [System.Xml.Serialization.XmlElementAttribute(&quot;CategoryPosition&quot;, typeof(CategoryPosition))]
+    [System.Xml.Serialization.XmlElementAttribute(&quot;CategoryRelationStructure&quot;, typeof(CategoryRelationStructure))]
+    [System.Xml.Serialization.XmlElementAttribute(&quot;CategoryRelationship&quot;, typeof(CategoryRelationship))]
+    [System.Xml.Serialization.XmlElementAttribute(&quot;CategorySet&quot;, typeof(CategorySet))]
+    [System.Xml.Serialization.XmlElementAttribute(&quot;CategoryStatistic&quot;, typeof(CategoryStatistic))]
+    [System.Xml.Serialization.XmlElementAttribute(&quot;ClassificationFamily&quot;, typeof(ClassificationFamily))]
+    [System.Xml.Serialization.XmlElementAttribute(&quot;ClassificationIndex&quot;, typeof(ClassificationIndex))]
+    [System.Xml.Serialization.XmlElementAttribute(&quot;ClassificationIndexEntry&quot;, typeof(ClassificationIndexEntry))]
+    [System.Xml.Serialization.XmlElementAttribute(&quot;ClassificationIndexEntryPosition&quot;, typeof(ClassificationIndexEntryPosition))]
+    [System.Xml.Serialization.XmlElementAttribute(&quot;ClassificationItem&quot;, typeof(ClassificationItem))]
+    [System.Xml.Serialization.XmlElementAttribute(&quot;ClassificationItemPosition&quot;, typeof(ClassificationItemPosition))]
+    [System.Xml.Serialization.XmlElementAttribute(&quot;ClassificationItemRelationship&quot;, typeof(ClassificationItemRelationship))]
+    [System.Xml.Serialization.XmlElementAttribute(&quot;ClassificationItemStructure&quot;, typeof(ClassificationItemStructure))]
+    [System.Xml.Serialization.XmlElementAttribute(&quot;ClassificationPosition&quot;, typeof(ClassificationPosition))]
+    [System.Xml.Serialization.XmlElementAttribute(&quot;ClassificationSeries&quot;, typeof(ClassificationSeries))]
+    [System.Xml.Serialization.XmlElementAttribute(&quot;ClassificationSeriesStructure&quot;, typeof(ClassificationSeriesStructure))]
+    [System.Xml.Serialization.XmlElementAttribute(&quot;Code&quot;, typeof(Code))]
+    [System.Xml.Serialization.XmlElementAttribute(&quot;CodeList&quot;, typeof(CodeList))]
+    [System.Xml.Serialization.XmlElementAttribute(&quot;CodeListStructure&quot;, typeof(CodeListStructure))]
+    [System.Xml.Serialization.XmlElementAttribute(&quot;CodePosition&quot;, typeof(CodePosition))]
+    [System.Xml.Serialization.XmlElementAttribute(&quot;CodeRelationship&quot;, typeof(CodeRelationship))]
+    [System.Xml.Serialization.XmlElementAttribute(&quot;ComponentPosition&quot;, typeof(ComponentPosition))]
+    [System.Xml.Serialization.XmlElementAttribute(&quot;Concept&quot;, typeof(Concept))]
+</code></pre>
+</div>
+<div class="font50p docutils container">
+<p>Source file <a class="reference external" href="https://github.com/ddi-cdi-resources/ddi-cdi_encoding/tree/main/encoding/xsd_based/c%23/ddi-cdi_44_noXsdTypeInName.cs">ddi-cdi.cs</a></p>
+</div>
+</section>
+</section>
+
+        </div>
+    </div>
+    
+    <script src="../../_static/revealjs/dist/reveal.js"></script>
+    
+    
+      <script src="../../_static/revealjs/plugin/highlight/highlight.js"></script>
+      <script src="../../_static/revealjs/plugin/zoom/zoom.js"></script>
+      <script src="../../_static/menu.js"></script>
+      
+    
+    <script>
+        var revealjsConfig = new Object();
+        Object.assign(revealjsConfig, {"hash": true, "slideNumber": "c/t", "menu": {"side": "left", "width": "normal", "numbers": false, "titleSelector": "h1, h2, h3, h4, h5, h6", "useTextContentForMissingTitles": false, "hideMissingTitles": false, "markers": true, "custom": false, "themes": false, "themesPath": "dist/theme/", "transitions": false, "openButton": true, "openSlideNumber": false, "keyboard": true, "sticky": false, "autoOpen": true, "delayInit": false, "openOnInit": false, "loadIcons": true}, "scrollActivationWidth": null});
+        
+        
+        
+          revealjsConfig.plugins = [
+            RevealHighlight,RevealZoom,RevealMenu,
+          ];
+        
+        // More info https://github.com/hakimel/reveal.js#configuration
+        Reveal.initialize(revealjsConfig);
+    </script>
+
+  </body>
+</html>

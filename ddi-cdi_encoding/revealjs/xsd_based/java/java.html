@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+
+<html lang="en" data-content_root="../../">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <title>Java</title>
+    <link rel="stylesheet" type="text/css" href="../../_static/revealjs/dist/reveal.css?v=40f0a724" />
+    <link rel="stylesheet" href="../../_static/revealjs/dist/theme/sky.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/revealjs_custom.css?v=155d2288" />
+    <link rel="stylesheet" type="text/css" href="../../_static/common.css?v=51d1a8f8" />
+    <link rel="stylesheet" type="text/css" href="../../_static/custom.css?v=3184803b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/menu.css?v=b1df3480" />
+    <link rel="stylesheet" type="text/css" href="../../_static/revealjs4/plugin/highlight/monokai.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
+    <link rel="stylesheet" type="text/css" href="../../_static/graphviz.css" />
+    <script src="../../_static/design-tabs.js?v=36754332"></script>
+    <link rel="next" title="JSON Schema" href="../json-schema/json-schema.html" />
+    <link rel="prev" title="C++" href="../c%2B%2B/c%2B%2B.html" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+  </head><body>
+    <div class="reveal">
+        <div class="slides" role="main">
+            <section data-name="Java">
+<section >
+<h1>Java</h1>
+<div class="line-block">
+<div class="line">Approaches are based on the XML Schema:</div>
+<div class="line"><strong>JAXB</strong> and <strong>XMLBeans</strong></div>
+</div>
+<ul class="simple">
+<li><p><a class="reference external" href="https://eclipse-ee4j.github.io/jaxb-ri/">JAXB - Eclipse Jakarta XML Binding</a> provides an API and tools that automate the mapping between XML documents and Java objects.</p></li>
+<li><p><a class="reference external" href="https://xmlbeans.apache.org/">Apache XMLBeans</a> is a technology for accessing XML by binding it to Java types.</p></li>
+</ul>
+</section>
+</section>
+<section >
+<h2>JAXB Generation - Windows Batch File</h2>
+<div class="literal-block-wrapper docutils container" id="id1">
+<div class="code-block-caption"><span class="caption-text">run_xjc.cmd</span></div>
+<pre><code data-trim data-noescape class="bat" data-line-numbers>set JAXB_HOME=C:\Programs\jaxb\jaxb-ri-4.0.3\jaxb-ri
+set XSD_HOME=..\..\model_based\xsd_variants
+
+IF EXIST jaxb_42 RMDIR /S /Q jaxb_42
+IF NOT EXIST jaxb_42 MKDIR jaxb_42
+call %JAXB_HOME%\bin\xjc.bat -d jaxb_42 &quot;%XSD_HOME%\ddi-cdi_42_noXsdTypeInName.xsd&quot;
+
+IF EXIST jaxb_43 RMDIR /S /Q jaxb_43
+IF NOT EXIST jaxb_43 MKDIR jaxb_43
+call %JAXB_HOME%\bin\xjc.bat -d jaxb_43 &quot;%XSD_HOME%\ddi-cdi_43_noXsdTypeInName.xsd&quot;
+
+IF EXIST jaxb_44 RMDIR /S /Q jaxb_44
+IF NOT EXIST jaxb_44 MKDIR jaxb_44
+call %JAXB_HOME%\bin\xjc.bat -d jaxb_44 &quot;%XSD_HOME%\ddi-cdi_44_noXsdTypeInName.xsd&quot;
+
+IF EXIST jaxb_45 RMDIR /S /Q jaxb_45
+IF NOT EXIST jaxb_45 MKDIR jaxb_45
+call %JAXB_HOME%\bin\xjc.bat -d jaxb_45 &quot;%XSD_HOME%\ddi-cdi_45_noXsdTypeInName.xsd&quot;
+
+set JAXB_HOME=
+set XSD_HOME=
+</code></pre>
+</div>
+</section>
+<section >
+<h2>Generation with XMLBeans - Ant Build File</h2>
+<div class="literal-block-wrapper docutils container" id="id2">
+<div class="code-block-caption"><span class="caption-text">build.xml</span></div>
+<pre><code data-trim data-noescape class="xml" data-line-numbers>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;project name=&quot;ddi-cdi-xmlbeans&quot; default=&quot;create-xmlbeans&quot;&gt;
+	&lt;!-- xmlbeans location --&gt;
+	&lt;property name=&quot;xmlbeans.lib.dir&quot; location=&quot;C:/Programs/xmlbeans-5.2.0/lib&quot;/&gt;
+	&lt;!-- Set the classpath --&gt;
+	&lt;path id=&quot;build.classpath&quot;&gt;
+		&lt;fileset dir=&quot;${xmlbeans.lib.dir}&quot;&gt;
+			&lt;include name=&quot;*.jar&quot;/&gt;
+		&lt;/fileset&gt;
+	&lt;/path&gt;
+	&lt;taskdef name=&quot;xmlbeans&quot; classname=&quot;org.apache.xmlbeans.impl.tool.XMLBean&quot; classpath=&quot;${xmlbeans.lib.dir}/xmlbeans-5.2.0.jar&quot; classpathref=&quot;build.classpath&quot;/&gt;
+	&lt;!-- ddi-cdi schema --&gt;
+	&lt;property name=&quot;xsd_42&quot; location=&quot;../../model_based/xsd_variants/ddi-cdi_42_noXsdTypeInName.xsd&quot;/&gt;
+	&lt;property name=&quot;xsd_43&quot; location=&quot;../../model_based/xsd_variants/ddi-cdi_43_noXsdTypeInName.xsd&quot;/&gt;
+	&lt;property name=&quot;xsd_44&quot; location=&quot;../../model_based/xsd_variants/ddi-cdi_44_noXsdTypeInName.xsd&quot;/&gt;
+	&lt;property name=&quot;xsd_45&quot; location=&quot;../../model_based/xsd_variants/ddi-cdi_45_noXsdTypeInName.xsd&quot;/&gt;
+	&lt;target name=&quot;create-xmlbeans&quot;&gt;
+		&lt;xmlbeans schema=&quot;${xsd_42}&quot; download=&quot;true&quot; classpath=&quot;ddi-cdi-xmlbeans.jar&quot; srconly=&quot;true&quot; srcgendir=&quot;xmlbeans_42&quot;/&gt;
+		&lt;xmlbeans schema=&quot;${xsd_43}&quot; download=&quot;true&quot; classpath=&quot;ddi-cdi-xmlbeans.jar&quot; srconly=&quot;true&quot; srcgendir=&quot;xmlbeans_43&quot;/&gt;
+		&lt;xmlbeans schema=&quot;${xsd_44}&quot; download=&quot;true&quot; classpath=&quot;ddi-cdi-xmlbeans.jar&quot; srconly=&quot;true&quot; srcgendir=&quot;xmlbeans_44&quot;/&gt;
+		&lt;xmlbeans schema=&quot;${xsd_45}&quot; download=&quot;true&quot; classpath=&quot;ddi-cdi-xmlbeans.jar&quot; srconly=&quot;true&quot; srcgendir=&quot;xmlbeans_45&quot;/&gt;
+	&lt;/target&gt;
+&lt;/project&gt;</code></pre>
+</div>
+</section>
+<section >
+<h2>Evaluation</h2>
+<p>JAXB seems to be the better choice. XMLBeans doesn’t … (to be filled in)</p>
+</section>
+</section>
+
+        </div>
+    </div>
+    
+    <script src="../../_static/revealjs/dist/reveal.js"></script>
+    
+    
+      <script src="../../_static/revealjs/plugin/highlight/highlight.js"></script>
+      <script src="../../_static/revealjs/plugin/zoom/zoom.js"></script>
+      <script src="../../_static/menu.js"></script>
+      
+    
+    <script>
+        var revealjsConfig = new Object();
+        Object.assign(revealjsConfig, {"hash": true, "slideNumber": "c/t", "menu": {"side": "left", "width": "normal", "numbers": false, "titleSelector": "h1, h2, h3, h4, h5, h6", "useTextContentForMissingTitles": false, "hideMissingTitles": false, "markers": true, "custom": false, "themes": false, "themesPath": "dist/theme/", "transitions": false, "openButton": true, "openSlideNumber": false, "keyboard": true, "sticky": false, "autoOpen": true, "delayInit": false, "openOnInit": false, "loadIcons": true}, "scrollActivationWidth": null});
+        
+        
+        
+          revealjsConfig.plugins = [
+            RevealHighlight,RevealZoom,RevealMenu,
+          ];
+        
+        // More info https://github.com/hakimel/reveal.js#configuration
+        Reveal.initialize(revealjsConfig);
+    </script>
+
+  </body>
+</html>
